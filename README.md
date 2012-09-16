@@ -21,3 +21,7 @@ make
 # convert test data to opus
 make go
 ```
+
+### License
+
+IANAL the resulting work should be BSD licensed, see LICENSE
