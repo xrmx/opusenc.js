@@ -37,7 +37,7 @@ opus: setup-env
 opus-tools: setup-env
 	cd opus-tools-0.1.5 && \
 		$(EMCONFIGURE) ./configure --with-ogg-includes=../libogg-1.3.0/include/ --with-ogg-libraries=../libogg-1.3.0/ --with-opus-includes=../opus-1.0.1/include/ --with-opus-libraries=../opus-1.0.1/ && \
-		$(EMMAKE) make
+		$(EMMAKE) make opusenc
 
 getopt: setup-env
 	$(EMCC) $(EMSCRIPTEN)/tests/openjpeg/common/getopt.c -I $(EMSCRIPTEN)/tests/openjpeg/common/ -o getopt.o
