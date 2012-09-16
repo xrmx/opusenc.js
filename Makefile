@@ -40,7 +40,6 @@ getopt:
 	$(EMCC) $(EMSCRIPTEN)/tests/openjpeg/common/getopt.c -I $(EMSCRIPTEN)/tests/openjpeg/common/ -o getopt.o
 
 opus-js: ogg opus opus-tools getopt opusenc-js
-	;
 
 opusenc-js:
 	$(EMCC) -02 -o opusenc.js getopt.o opus-tools-0.1.5/src/{opus_header.o,opusenc.o,resample.o,audio-in.o,diag_range.o,lpc.o,../win32/unicode_support.o} libogg-1.3.0/.libs/libogg.a opus-1.0.1/.libs/libopus.a --embed-file test/familyguy.wav
