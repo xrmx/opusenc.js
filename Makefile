@@ -20,32 +20,29 @@ setup:
 	cd opus-tools-0.1.5 && \
 		patch -p0 < ../force-opusenc-quiet.diff
 
-setup-env:
-	export LLVM_ADD_VERSION="3.1"
-
-ogg: setup-env
+ogg:
 	cd libogg-1.3.0 && \
 		$(EMCONFIGURE) ./configure && \
 		$(EMMAKE) make && \
 		ln -s src/.libs .libs
 
-opus: setup-env
+opus:
 	cd opus-1.0.1 && \
 		$(EMCONFIGURE) ./configure && \
 		$(EMMAKE) make
 
-opus-tools: setup-env
+opus-tools:
 	cd opus-tools-0.1.5 && \
 		$(EMCONFIGURE) ./configure --with-ogg-includes=../libogg-1.3.0/include/ --with-ogg-libraries=../libogg-1.3.0/ --with-opus-includes=../opus-1.0.1/include/ --with-opus-libraries=../opus-1.0.1/ && \
 		$(EMMAKE) make opusenc
 
-getopt: setup-env
+getopt:
 	$(EMCC) $(EMSCRIPTEN)/tests/openjpeg/common/getopt.c -I $(EMSCRIPTEN)/tests/openjpeg/common/ -o getopt.o
 
 opus-js: ogg opus opus-tools getopt opusenc-js
 	;
 
-opusenc-js: setup-env
+opusenc-js:
 	$(EMCC) -02 -o opusenc.js getopt.o opus-tools-0.1.5/src/{opus_header.o,opusenc.o,resample.o,audio-in.o,diag_range.o,lpc.o,../win32/unicode_support.o} libogg-1.3.0/.libs/libogg.a opus-1.0.1/.libs/libopus.a --embed-file test/familyguy.wav
 
 go:
