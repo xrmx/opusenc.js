@@ -1,0 +1,11 @@
+--- src/opusenc.orig	2012-09-16 15:57:15.060773094 +0200
++++ src/opusenc.c	2012-09-16 15:57:32.424862547 +0200
+@@ -249,7 +249,7 @@
+   time_t             last_spin=0;
+   int                last_spin_len=0;
+   /*Settings*/
+-  int                quiet=0;
++  int                quiet=1;
+   int                max_frame_bytes;
+   opus_int32         bitrate=-1;
+   opus_int32         rate=48000;

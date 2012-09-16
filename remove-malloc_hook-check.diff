@@ -1,0 +1,10 @@
+--- configure.ac.orig	2012-09-15 15:12:32.175594675 +0200
++++ configure.ac	2012-09-15 15:12:49.767685631 +0200
+@@ -239,7 +239,6 @@
+ 
+ AC_CHECK_FUNCS([lrintf])
+ AC_CHECK_FUNCS([lrint])
+-AC_CHECK_FUNCS([__malloc_hook])
+ 
+ AC_CHECK_SIZEOF(short)
+ AC_CHECK_SIZEOF(int)

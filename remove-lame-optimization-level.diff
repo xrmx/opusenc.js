@@ -1,0 +1,31 @@
+--- configure.orig	2012-09-15 17:29:56.667611275 +0200
++++ configure	2012-09-15 17:30:19.355728194 +0200
+@@ -11565,13 +11565,13 @@
+         case $host in
+         *-*-linux*)
+                 DEBUG="-g -Wall -fsigned-char"
+-                CFLAGS="-O20 -Wall -ffast-math -fsigned-char"
+-                PROFILE="-Wall -W -pg -g -O20 -ffast-math -fsigned-char"
++                CFLAGS="-O2 -Wall -ffast-math -fsigned-char"
++                PROFILE="-Wall -W -pg -g -O2 -ffast-math -fsigned-char"
+ 		;;
+         sparc-sun-*)
+                 DEBUG="-g -Wall -fsigned-char"
+-                CFLAGS="-O20 -ffast-math -fsigned-char"
+-                PROFILE="-pg -g -O20 -fsigned-char"
++                CFLAGS="-O2 -ffast-math -fsigned-char"
++                PROFILE="-pg -g -O2 -fsigned-char"
+ 		;;
+ 	*-*-darwin*)
+ 		DEBUG="-fno-common -g -Wall -fsigned-char"
+@@ -11580,8 +11580,8 @@
+ 		;;
+         *)
+                 DEBUG="-g -Wall -fsigned-char"
+-                CFLAGS="-O20 -fsigned-char"
+-                PROFILE="-O20 -g -pg -fsigned-char"
++                CFLAGS="-O2 -fsigned-char"
++                PROFILE="-O2 -g -pg -fsigned-char"
+ 		;;
+         esac
+ fi
