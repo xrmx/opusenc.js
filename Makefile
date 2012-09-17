@@ -42,7 +42,7 @@ getopt:
 opus-js: ogg opus opus-tools getopt opusenc-js
 
 opusenc-js:
-	$(EMCC) -02 -o opusenc.js getopt.o opus-tools-0.1.5/src/{opus_header.o,opusenc.o,resample.o,audio-in.o,diag_range.o,lpc.o,../win32/unicode_support.o} libogg-1.3.0/.libs/libogg.a opus-1.0.1/.libs/libopus.a --embed-file test/familyguy.wav
+	$(EMCC) -02 -o opusenc.js getopt.o opus-tools-0.1.5/src/opus_header.o opus-tools-0.1.5/src/opusenc.o opus-tools-0.1.5/src/resample.o opus-tools-0.1.5/src/audio-in.o opus-tools-0.1.5/src/diag_range.o opus-tools-0.1.5/src/lpc.o opus-tools-0.1.5/win32/unicode_support.o libogg-1.3.0/.libs/libogg.a opus-1.0.1/.libs/libopus.a --embed-file test/familyguy.wav
 
 go:
 	$(NODEJS) opusenc.js familyguy.wav - > nodejs.opus
